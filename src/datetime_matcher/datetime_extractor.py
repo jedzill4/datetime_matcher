@@ -50,7 +50,7 @@ class DatetimeExtractor:
                     # Skip all problematic ones
                     continue
         # Now construct strings to use for strptime to generate a datetime object from the values
-        datetime_formatter = "#".join(datetime_format_codes)
+        datetime_formatter = "#".join(datetime_format_codes).replace('%-', '%')
         datetime_string = "#".join(datetime_string_values)
         try:
             parsed_datetime = datetime.strptime(datetime_string, datetime_formatter)
